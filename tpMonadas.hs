@@ -2,16 +2,16 @@
 --import Data.Monoid
 -- import Data.Bits
 
--- inspirado en calculo de sumatoria de bits, teniendo en cuenta que trabajando pasando todo a bits fue un bardo
+
 
 
 	
 	
 main :: IO()
 main = do
-	casos <- readFile "smallPractice.in"
+	casos <- readFile "A-large-practice.in"
 	let lin = armarTexto (drop  1 (lines casos)) 1 --tiramos la primera que no sirve
-	writeFile  "smallPractice.out" lin 
+	writeFile  "A-large-practice.out" lin 
 
 armarTexto :: [String] -> Int -> String   
 armarTexto (x:xs) n= "Case #"++(show n)++": " ++(agarrarParametros (words x))++"\n"++(armarTexto xs (n+1))
@@ -27,7 +27,7 @@ agarrarParametros (x:y:xs) = resolver ix iy
 
 	
 
-
+-- sumatoria de bits, se complicaba mucho usando el data bits
 -- del lado derecho está la cantidad de bits necesarios en la que queda todo prendido
 -- del lado izquierdo del igual se fija si no sobran chasquidos por sobre el total, y al compararlo con el ideal, se sabe si es true o false
 
